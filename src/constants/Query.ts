@@ -24,10 +24,11 @@ export const QUERY_OPTIONS = {
     gcTime: 1000 * 60 * 60 * 24,
     staleTime: 1000 * 60 * 60 * 24,
   }),
-  INVITATION_TEMPLATE: (productInfoId: number | string) => ({
-    queryKey: QUERY_KEYS.INVITATION_TEMPLATE(productInfoId),
-    queryFn: () => getInvitation(productInfoId),
+  INVITATION_TEMPLATE: (templateId: number | string) => ({
+    queryKey: QUERY_KEYS.INVITATION_TEMPLATE(templateId),
+    queryFn: () => getInvitation(templateId),
     gcTime: 1000 * 60 * 60 * 24,
     staleTime: 1000 * 60 * 60 * 24,
   }),
+  INVITATION_PRODUCE: () => ({}),
 };
