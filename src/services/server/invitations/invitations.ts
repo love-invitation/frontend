@@ -24,8 +24,20 @@ export const getAllInvitations = async () => {
   return response.json();
 };
 
-export const getInvitation = async (productInfoId: number | string) => {
-  const response = await fetchApi(`/api/product/info/${productInfoId}`, {
+export const getInvitationTemplate = async (templateId: number | string) => {
+  const response = await fetchApi(`/api/product/info/${templateId}`, {
+    next: { revalidate: 1000 * 60 * 60 * 24 },
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return response.json();
+};
+
+export const getInvitationProduce = async (produceId: number | string) => {
+  const response = await fetchApi(`${produceId}`, {
     next: { revalidate: 1000 * 60 * 60 * 24 },
   });
 
