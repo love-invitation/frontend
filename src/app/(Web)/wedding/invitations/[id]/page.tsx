@@ -12,7 +12,7 @@ interface FloatingProps {
 const Floating = async ({ params }: FloatingProps) => {
   const { id } = params;
   const queryClient = getQueryClient();
-  await queryClient.prefetchQuery(QUERY_OPTIONS.INVITATION(id));
+  await queryClient.prefetchQuery(QUERY_OPTIONS.INVITATION_TEMPLATE(id));
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

@@ -8,7 +8,7 @@ export const getQueryClient = cache(() => new QueryClient());
 export const QUERY_KEYS = {
   BEST_INVITATIONS: ['best', 'invitations'],
   ALL_INVITATIONS: ['all', 'invitations'],
-  INVITATION: (productInfoId: number | string) => ['invitation', productInfoId],
+  INVITATION_TEMPLATE: (productInfoId: number | string) => ['invitation', productInfoId],
 };
 
 export const QUERY_OPTIONS = {
@@ -24,8 +24,8 @@ export const QUERY_OPTIONS = {
     gcTime: 1000 * 60 * 60 * 24,
     staleTime: 1000 * 60 * 60 * 24,
   }),
-  INVITATION: (productInfoId: number | string) => ({
-    queryKey: QUERY_KEYS.INVITATION(productInfoId),
+  INVITATION_TEMPLATE: (productInfoId: number | string) => ({
+    queryKey: QUERY_KEYS.INVITATION_TEMPLATE(productInfoId),
     queryFn: () => getInvitation(productInfoId),
     gcTime: 1000 * 60 * 60 * 24,
     staleTime: 1000 * 60 * 60 * 24,
