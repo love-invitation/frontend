@@ -1,1 +1,1 @@
-export * from './Invitations';
+export * from './WeddingTemplates';

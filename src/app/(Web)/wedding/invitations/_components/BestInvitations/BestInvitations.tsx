@@ -1,12 +1,10 @@
 import { QUERY_KEYS, getQueryClient } from '@/constants';
-import { InvitationTemplatesResponse } from '@/types/response';
+import { WeddingTemplatesResponse } from '@/types/response';
 
 import { InvitationsList } from '..';
 
 const BestInvitations = async () => {
-  const data = getQueryClient().getQueryData<InvitationTemplatesResponse>(
-    QUERY_KEYS.BEST_INVITATIONS,
-  );
+  const data = getQueryClient().getQueryData<WeddingTemplatesResponse>(QUERY_KEYS.BEST_INVITATIONS);
 
   if (!data) {
     return;

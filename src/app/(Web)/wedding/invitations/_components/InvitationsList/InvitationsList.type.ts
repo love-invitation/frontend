@@ -1,7 +1,7 @@
-import { InvitationTemplateItem } from '@/types/response';
+import { WeddingTemplateItem } from '@/types/response';
 
 export interface InvitationsListProps {
-  productInfoList: InvitationTemplateItem[];
+  productInfoList: WeddingTemplateItem[];
   groom: string;
   bride: string;
   detail: string;
