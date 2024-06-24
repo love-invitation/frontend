@@ -1,32 +1,47 @@
 import { cache } from 'react';
 
-import { getAllInvitations, getBestInvitations, getInvitation } from '@/services/server';
+import {
+  getAllWeddingTemplates,
+  getBestWeddingTemplates,
+  getInvitation,
+  getWeddingTemplate,
+} from '@/services/server';
 import { QueryClient } from '@tanstack/react-query';
 
 export const getQueryClient = cache(() => new QueryClient());
 
 export const QUERY_KEYS = {
-  BEST_INVITATIONS: ['best', 'invitations'],
-  ALL_INVITATIONS: ['all', 'invitations'],
-  INVITATION: (productInfoId: number | string) => ['invitation', productInfoId],
+  BEST_WEDDING_TEMPLATES: ['best', 'invitations'],
+  ALL_WEDDING_TEMPLATES: ['all', 'invitations'],
+  WEDDING_TEMPLATE: (templateId: number | string) => ['invitation', 'template', templateId],
+  INVITATION: (produceId: number | string) => ['invitation', 'produce', produceId],
 };
 
 export const QUERY_OPTIONS = {
-  BEST_INVITATIONS: () => ({
-    queryKey: QUERY_KEYS.BEST_INVITATIONS,
-    queryFn: () => getBestInvitations(),
+  BEST_WEDDING_TEMPLATES: () => ({
+    queryKey: QUERY_KEYS.BEST_WEDDING_TEMPLATES,
+    queryFn: () => getBestWeddingTemplates(),
     gcTime: 1000 * 60 * 60 * 24,
     staleTime: 1000 * 60 * 60 * 24,
   }),
-  ALL_INVITATIONS: () => ({
-    queryKey: QUERY_KEYS.ALL_INVITATIONS,
-    queryFn: () => getAllInvitations(),
+
+  ALL_WEDDING_TEMPLATES: () => ({
+    queryKey: QUERY_KEYS.ALL_WEDDING_TEMPLATES,
+    queryFn: () => getAllWeddingTemplates(),
     gcTime: 1000 * 60 * 60 * 24,
     staleTime: 1000 * 60 * 60 * 24,
   }),
-  INVITATION: (productInfoId: number | string) => ({
-    queryKey: QUERY_KEYS.INVITATION(productInfoId),
-    queryFn: () => getInvitation(productInfoId),
+
+  WEDDING_TEMPLATE: (templateId: number | string) => ({
+    queryKey: QUERY_KEYS.WEDDING_TEMPLATE(templateId),
+    queryFn: () => getWeddingTemplate(templateId),
+    gcTime: 1000 * 60 * 60 * 24,
+    staleTime: 1000 * 60 * 60 * 24,
+  }),
+
+  INVITATION: (produceId: number | string) => ({
+    queryKey: QUERY_KEYS.INVITATION(produceId),
+    queryFn: () => getInvitation(produceId),
     gcTime: 1000 * 60 * 60 * 24,
     staleTime: 1000 * 60 * 60 * 24,
   }),

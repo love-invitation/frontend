@@ -1,8 +1,8 @@
-import { InvitationItem, InvitationResponse } from '@/types/response';
+import { WeddingTemplateItem, WeddingTemplateResponse } from '@/types/response';
 
 export interface InvitationTemplateProps
-  extends Pick<InvitationResponse['result'], 'title' | 'details' | 'groomName' | 'brideName'> {
-  productInfo: Pick<InvitationItem, 'id' | 'imageUrl' | 'templateName'>;
+  extends Pick<WeddingTemplateResponse['result'], 'title' | 'details' | 'groomName' | 'brideName'> {
+  productInfo: Pick<WeddingTemplateItem, 'id' | 'imageUrl' | 'templateName'>;
   width: number;
   height: number;
 }

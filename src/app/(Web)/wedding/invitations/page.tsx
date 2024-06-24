@@ -8,8 +8,8 @@ const InvitationsPage = async () => {
   const queryClient = getQueryClient();
 
   await Promise.all([
-    queryClient.prefetchQuery(QUERY_OPTIONS.BEST_INVITATIONS()),
-    queryClient.prefetchQuery(QUERY_OPTIONS.ALL_INVITATIONS()),
+    queryClient.prefetchQuery(QUERY_OPTIONS.BEST_WEDDING_TEMPLATES()),
+    queryClient.prefetchQuery(QUERY_OPTIONS.ALL_WEDDING_TEMPLATES()),
   ]);
 
   return (

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import tailwindConfig from '@/../tailwind.config';
 import { ArrowRightIcon } from '@/components/server';
 import { QUERY_KEYS, QUERY_OPTIONS, getQueryClient } from '@/constants';
-import { InvitationsResponse } from '@/types/response/Invitations';
+import { WeddingTemplatesResponse } from '@/types/response';
 
 import MainSectionTitle from '../MainSectionTitle/MainSectionTitle';
 import { MainBestList } from './_components';
@@ -14,9 +14,11 @@ const MainBestSection = async () => {
   const { theme } = resolveConfig(tailwindConfig);
   const queryClient = getQueryClient();
 
-  await queryClient.prefetchQuery(QUERY_OPTIONS.BEST_INVITATIONS());
+  await queryClient.prefetchQuery(QUERY_OPTIONS.BEST_WEDDING_TEMPLATES());
 
-  const data = queryClient.getQueryData<InvitationsResponse>(QUERY_KEYS.BEST_INVITATIONS);
+  const data = queryClient.getQueryData<WeddingTemplatesResponse>(
+    QUERY_KEYS.BEST_WEDDING_TEMPLATES,
+  );
 
   if (!data) {
     return null;
