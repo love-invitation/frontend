@@ -3,7 +3,7 @@ import { cache } from 'react';
 import {
   getAllWeddingTemplates,
   getBestWeddingTemplates,
-  getInvitationProduce,
+  getInvitation,
   getWeddingTemplate,
 } from '@/services/server';
 import { QueryClient } from '@tanstack/react-query';
@@ -14,7 +14,7 @@ export const QUERY_KEYS = {
   BEST_INVITATIONS: ['best', 'invitations'],
   ALL_INVITATIONS: ['all', 'invitations'],
   INVITATION_TEMPLATE: (templateId: number | string) => ['invitation', 'template', templateId],
-  INVITATION_PRODUCE: (produceId: number | string) => ['invitation', 'produce', produceId],
+  INVITATION: (produceId: number | string) => ['invitation', 'produce', produceId],
 };
 
 export const QUERY_OPTIONS = {
@@ -36,9 +36,9 @@ export const QUERY_OPTIONS = {
     gcTime: 1000 * 60 * 60 * 24,
     staleTime: 1000 * 60 * 60 * 24,
   }),
-  INVITATION_PRODUCE: (produceId: number | string) => ({
-    queryKey: QUERY_KEYS.INVITATION_PRODUCE(produceId),
-    queryFn: () => getInvitationProduce(produceId),
+  INVITATION: (produceId: number | string) => ({
+    queryKey: QUERY_KEYS.INVITATION(produceId),
+    queryFn: () => getInvitation(produceId),
     gcTime: 1000 * 60 * 60 * 24,
     staleTime: 1000 * 60 * 60 * 24,
   }),
