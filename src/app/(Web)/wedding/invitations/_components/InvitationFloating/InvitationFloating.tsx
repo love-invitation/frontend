@@ -7,7 +7,7 @@ import { WeddingTemplates } from '@/components/client';
 import { TemplateLayout } from '@/components/server';
 import { QUERY_OPTIONS } from '@/constants';
 import useClickAway from '@/hooks/useClickAway/useClickAway';
-import { InvitationResponse } from '@/types/response';
+import { InvitationTemplateResponse } from '@/types/response';
 import { useQuery } from '@tanstack/react-query';
 
 import { InvitationFloatingProps } from './InvitationFloating.type';
@@ -16,7 +16,7 @@ const InvitationFloating = ({ id }: InvitationFloatingProps) => {
   const route = useRouter();
   const ref = useClickAway<HTMLDivElement>(() => route.back());
 
-  const { data } = useQuery<InvitationResponse>(QUERY_OPTIONS.INVITATION_TEMPLATE(id));
+  const { data } = useQuery<InvitationTemplateResponse>(QUERY_OPTIONS.INVITATION_TEMPLATE(id));
 
   if (!data?.result) {
     return;

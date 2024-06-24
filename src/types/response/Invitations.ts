@@ -1,4 +1,4 @@
-export interface InvitationsResponse {
+export interface InvitationTemplatesResponse {
   status: number;
   message: string;
   result: {
@@ -6,11 +6,11 @@ export interface InvitationsResponse {
     details: string;
     groomName: string;
     brideName: string;
-    productInfoList: InvitationItem[];
+    productInfoList: InvitationTemplateItem[];
   };
 }
 
-export interface InvitationResponse {
+export interface InvitationTemplateResponse {
   status: number;
   message: string;
   result: {
@@ -18,11 +18,11 @@ export interface InvitationResponse {
     details: string;
     groomName: string;
     brideName: string;
-    productInfo: InvitationItem;
+    productInfo: InvitationTemplateItem;
   };
 }
 
-export interface InvitationItem {
+export interface InvitationTemplateItem {
   id: number;
   imageUrl: string;
   templateName: string;

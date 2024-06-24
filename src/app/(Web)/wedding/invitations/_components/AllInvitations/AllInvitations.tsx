@@ -1,10 +1,12 @@
 import { QUERY_KEYS, getQueryClient } from '@/constants';
-import { InvitationsResponse } from '@/types/response';
+import { InvitationTemplatesResponse } from '@/types/response';
 
 import { InvitationsList } from '..';
 
 const AllInvitations = () => {
-  const data = getQueryClient().getQueryData<InvitationsResponse>(QUERY_KEYS.ALL_INVITATIONS);
+  const data = getQueryClient().getQueryData<InvitationTemplatesResponse>(
+    QUERY_KEYS.ALL_INVITATIONS,
+  );
 
   if (!data) {
     return;
