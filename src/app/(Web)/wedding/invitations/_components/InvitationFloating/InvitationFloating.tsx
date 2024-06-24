@@ -16,7 +16,7 @@ const InvitationFloating = ({ id }: InvitationFloatingProps) => {
   const route = useRouter();
   const ref = useClickAway<HTMLDivElement>(() => route.back());
 
-  const { data } = useQuery<WeddingTemplateResponse>(QUERY_OPTIONS.INVITATION_TEMPLATE(id));
+  const { data } = useQuery<WeddingTemplateResponse>(QUERY_OPTIONS.WEDDING_TEMPLATE(id));
 
   if (!data?.result) {
     return;

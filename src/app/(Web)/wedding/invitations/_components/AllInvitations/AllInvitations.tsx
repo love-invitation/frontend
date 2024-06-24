@@ -4,7 +4,9 @@ import { WeddingTemplatesResponse } from '@/types/response';
 import { InvitationsList } from '..';
 
 const AllInvitations = () => {
-  const data = getQueryClient().getQueryData<WeddingTemplatesResponse>(QUERY_KEYS.ALL_INVITATIONS);
+  const data = getQueryClient().getQueryData<WeddingTemplatesResponse>(
+    QUERY_KEYS.ALL_WEDDING_TEMPLATES,
+  );
 
   if (!data) {
     return;

@@ -14,9 +14,11 @@ const MainBestSection = async () => {
   const { theme } = resolveConfig(tailwindConfig);
   const queryClient = getQueryClient();
 
-  await queryClient.prefetchQuery(QUERY_OPTIONS.BEST_INVITATIONS());
+  await queryClient.prefetchQuery(QUERY_OPTIONS.BEST_WEDDING_TEMPLATES());
 
-  const data = queryClient.getQueryData<WeddingTemplatesResponse>(QUERY_KEYS.BEST_INVITATIONS);
+  const data = queryClient.getQueryData<WeddingTemplatesResponse>(
+    QUERY_KEYS.BEST_WEDDING_TEMPLATES,
+  );
 
   if (!data) {
     return null;
