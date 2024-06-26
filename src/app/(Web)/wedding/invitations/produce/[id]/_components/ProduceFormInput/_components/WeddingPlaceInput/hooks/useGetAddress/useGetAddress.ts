@@ -37,8 +37,8 @@ const useGetAddress = ({ showModal }: UseGetAddressProps) => {
             const lat = Number(result[0].y);
             const lng = Number(result[0].x);
 
-            setValue('place.lat', lat);
-            setValue('place.lng', lng);
+            setValue('place.latitude', lat);
+            setValue('place.longitude', lng);
             setCenter({
               lat,
               lng,

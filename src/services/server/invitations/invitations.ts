@@ -53,9 +53,9 @@ export const postInvitation = async ({
     groom,
     bride,
     place,
-    reservation,
+    booking,
     guestbookCheck,
-    transportation,
+    transport,
     priority,
     contacts,
     accounts,
@@ -78,63 +78,21 @@ export const postInvitation = async ({
     title: article.title,
     contents: article.contents,
     coverContents: cover.contents,
-    groomInfo: {
-      name: groom.name,
-      fatherName: groom.father.name,
-      fatherIsCondolences: groom.father.deceased,
-      motherName: groom.mother.name,
-      motherIsCondolences: groom.mother.deceased,
-      relation: groom.relation,
-    },
-    brideInfo: {
-      name: bride.name,
-      fatherName: bride.father.name,
-      fatherIsCondolences: bride.father.deceased,
-      motherName: bride.mother.name,
-      motherIsCondolences: bride.mother.deceased,
-      relation: bride.relation,
-    },
-    wedding: {
-      placeName: place.name,
-      detail: place.detail,
-      placeAddress: place.address,
-      date: `${reservation.date}T${reservation.time}`,
-      dateType: reservation.type ? 'CALENDAR' : 'NONE',
+    groom,
+    bride,
+    place,
+    booking: {
+      date: `${booking.date}T${booking.time}`,
+      dateType: booking.dateType ? 'CALENDAR' : 'NONE',
     },
     guestbookCheck,
-    transport: transportation,
+    transport,
     priority,
-    contacts: {
-      groomContactInfo: [
-        { name: contacts.groom.name, phoneNumber: contacts.groom.phoneNumber, relation: '본인' },
-        ...contacts.groom.others,
-      ],
-      brideContactInfo: [
-        { name: contacts.bride.name, phoneNumber: contacts.bride.phoneNumber, relation: '본인' },
-        ...contacts.bride.others,
-      ],
-    },
-    accounts: {
-      groomAccountInfo: [
-        {
-          name: groom.name,
-          bankName: accounts.groom.bankName,
-          accountNumber: accounts.groom.accountNumber,
-        },
-        ...accounts.groom.others,
-      ],
-      brideAccountInfo: [
-        {
-          name: bride.name,
-          bankName: accounts.bride.bankName,
-          accountNumber: accounts.bride.accountNumber,
-        },
-        ...accounts.bride.others,
-      ],
-    },
-    shareThumbnail: {
-      shareTitle: thumbnail.title,
-      shareContents: thumbnail.contents,
+    contacts,
+    accounts,
+    thumbnail: {
+      title: thumbnail.title,
+      contents: thumbnail.contents,
     },
   };
 

@@ -4,7 +4,7 @@ import { useFieldArray, useFormContext } from 'react-hook-form';
 
 import tailwindConfig from '@/../tailwind.config';
 import { Accordion, Button, Input } from '@/components/client';
-import { DeleteIcon } from '@/components/server';
+import { CloseIcon } from '@/components/server';
 
 import resolveConfig from 'tailwindcss/resolveConfig';
 
@@ -12,7 +12,7 @@ const TransportationInput = () => {
   const { control, setValue, getValues } = useFormContext();
   const { fields, remove } = useFieldArray({
     control,
-    name: 'transportation',
+    name: 'transport',
   });
   const { theme } = resolveConfig(tailwindConfig);
 
@@ -38,18 +38,18 @@ const TransportationInput = () => {
                     remove(index);
                   }}
                 >
-                  <DeleteIcon
+                  <CloseIcon
                     size='2.4rem'
                     fill={theme.colors.gray_500}
                   />
                 </Button>
               </div>
               <Input.Input
-                name={`transportation.${index}.kind`}
+                name={`transport.${index}.kind`}
                 placeholder='교통 수단을 입력해주세요. (지하철, 버스)'
               />
               <Input.Input
-                name={`transportation.${index}.detail`}
+                name={`transport.${index}.detail`}
                 placeholder='가는 방법을 작성해주세요.'
               />
             </li>
@@ -63,7 +63,7 @@ const TransportationInput = () => {
           fontColor='black'
           radius='0.8rem'
           onClick={() => {
-            setValue('transportation', [...getValues('transportation'), { kind: '', detail: '' }]);
+            setValue('transport', [...getValues('transport'), { kind: '', detail: '' }]);
           }}
         >
           + 교통수단 추가

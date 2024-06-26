@@ -18,7 +18,7 @@ const ReservationInput = () => {
           <Input.Label>예약일</Input.Label>
           <Input.Input
             type='date'
-            name='reservation.date'
+            name='booking.date'
             className=''
           />
         </Input>
@@ -26,7 +26,7 @@ const ReservationInput = () => {
           <Input.Label>시각</Input.Label>
           <Input.Input
             type='time'
-            name='reservation.time'
+            name='booking.time'
           />
         </Input>
         <Input className='items-center gap-[4.7rem]'>
@@ -34,8 +34,8 @@ const ReservationInput = () => {
           <div className='flex items-center gap-[1rem]'>
             <CheckBox
               id='mark'
-              checked={watch(`reservation.type`)}
-              onChange={(event) => setValue('reservation.type', event.currentTarget.checked)}
+              checked={watch(`booking.dateType`)}
+              onChange={(event) => setValue('booking.dateType', event.currentTarget.checked)}
             />
             <label
               htmlFor='mark'

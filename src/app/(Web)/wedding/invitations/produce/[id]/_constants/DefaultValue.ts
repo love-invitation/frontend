@@ -15,26 +15,14 @@ interface ImageSection {
   contents: string;
 }
 
-interface ContactDetails {
-  name: string;
-  phoneNumber: string;
-  others: { name: string; phoneNumber: string; relation: string }[];
-}
-
 interface Contacts {
-  groom: ContactDetails;
-  bride: ContactDetails;
-}
-
-interface AccountDetails {
-  bankName: string;
-  accountNumber: string;
-  others: { name: string; bankName: string; accountNumber: string }[];
+  groom: { name: string; phoneNumber: string; relation: string }[];
+  bride: { name: string; phoneNumber: string; relation: string }[];
 }
 
 interface Accounts {
-  groom: AccountDetails;
-  bride: AccountDetails;
+  groom: { name: string; bankName: string; accountNumber: string }[];
+  bride: { name: string; bankName: string; accountNumber: string }[];
 }
 
 export interface Invitation {
@@ -44,19 +32,19 @@ export interface Invitation {
     title: string;
     contents: string;
   };
-  reservation: {
+  booking: {
     date: string;
     time: string;
-    type: boolean;
+    dateType: boolean;
   };
   place: {
     name: string;
     detail: string;
     address: string;
-    lat: null | number;
-    lng: null | number;
+    latitude: null | number;
+    longitude: null | number;
   };
-  transportation: { kind: string; detail: string }[];
+  transport: { kind: string; detail: string }[];
   gallery: File[];
   groom: Person;
   bride: Person;
@@ -79,29 +67,13 @@ const IMAGE_SECTION: ImageSection = {
 };
 
 const CONTACTS: Contacts = {
-  groom: {
-    name: '',
-    phoneNumber: '',
-    others: [],
-  },
-  bride: {
-    name: '',
-    phoneNumber: '',
-    others: [],
-  },
+  groom: [{ name: '', phoneNumber: '', relation: '' }],
+  bride: [{ name: '', phoneNumber: '', relation: '' }],
 };
 
 const ACCOUNTS: Accounts = {
-  groom: {
-    bankName: '',
-    accountNumber: '',
-    others: [],
-  },
-  bride: {
-    bankName: '',
-    accountNumber: '',
-    others: [],
-  },
+  groom: [{ name: '', bankName: '', accountNumber: '' }],
+  bride: [{ name: '', bankName: '', accountNumber: '' }],
 };
 
 const INVITATION = {
@@ -111,19 +83,19 @@ const INVITATION = {
     title: '',
     contents: '',
   },
-  reservation: {
+  booking: {
     date: '',
     time: '',
-    type: true,
+    dateType: true,
   },
   place: {
     name: '',
     detail: '',
     address: '',
-    lat: null,
-    lng: null,
+    latitude: null,
+    longitude: null,
   },
-  transportation: [],
+  transport: [{ kind: '', detail: '' }],
   gallery: [],
   groom: { ...PERSON },
   bride: { ...PERSON },
