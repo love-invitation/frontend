@@ -7,7 +7,7 @@ const ArticleInput = () => {
       type='edit'
       defaultToggleValue
     >
-      <Input className='flex-col h-[45rem] gap-[2.1rem] py-[4rem] justify-center'>
+      <Input className='flex-col gap-[2.1rem] py-[4rem] justify-center'>
         <div className='flex items-center gap-[3.3rem]'>
           <Input.Label>제목</Input.Label>
           <Input.Input
@@ -15,7 +15,7 @@ const ArticleInput = () => {
             placeholder='소중한 분들을 초대합니다.'
           />
         </div>
-        <div className='flex gap-[3.3rem]'>
+        <div className='flex gap-[3.3rem] h-[40rem]'>
           <Input.Label>내용</Input.Label>
           <TextEditor name='article.contents' />
         </div>
