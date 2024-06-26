@@ -21,7 +21,7 @@ const TextEditor = ({ name = 'content', className }: TextEditorProps) => {
   return (
     <ReactQuill
       theme='snow'
-      className={twMerge('h-[30rem] border overflow-scroll', className)}
+      className={twMerge('overscroll-contain h-[80%]', className)}
       modules={modules}
       value={watch(name)}
       onChange={(newContent: string) => setValue(name, newContent)}
